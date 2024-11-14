@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { useRouter } from 'expo-router';
 
 const API_URL = 'http://localhost:3000';
 
@@ -26,6 +26,7 @@ const SignUp: React.FC<SignUpProps> = ({ onBackPress }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleSignUp = async () => {
     if (!validateInputs()) return;
@@ -86,7 +87,7 @@ const SignUp: React.FC<SignUpProps> = ({ onBackPress }) => {
       style={styles.container}
     >
       <View style={styles.header}>
-        <TouchableOpacity onPress={()=>navigation.navigate('index')} style={styles.backButton}>
+        <TouchableOpacity onPress={() => router.push('/')} style={styles.backButton}>
           <Ionicons name="arrow-back" size={24} color="orange" />
         </TouchableOpacity>
       </View>

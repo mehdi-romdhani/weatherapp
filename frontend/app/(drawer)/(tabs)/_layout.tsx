@@ -40,16 +40,7 @@ export default function TabLayout() {
         
       />
 
-        <Tabs.Screen
-                name="login"
-                options={{
-                  title: 'Login',
-                  tabBarIcon: ({ color }) => <Feather name='log-in' size={20} color={color} />,
-                  tabBarLabel: 'Login',
-                  headerTitle: 'Login',
-                }}
-                
-              />
+        
 
               <Tabs.Screen
                 name='search'
@@ -59,6 +50,17 @@ export default function TabLayout() {
                   tabBarLabel: 'Search',
                   headerTitle: 'Search',
                 }}
+              />
+              
+              <Tabs.Screen
+                name="login"
+                options={{
+                  title: 'Login',
+                  tabBarIcon: ({ color }) => <Feather name='log-in' size={20} color={color} />,
+                  tabBarLabel: 'Login',
+                  headerTitle: 'Login',
+                }}
+                
               />
     </Tabs>
   );

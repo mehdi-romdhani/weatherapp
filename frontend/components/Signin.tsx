@@ -13,6 +13,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 const API_URL = 'http://localhost:3000';
 
@@ -26,6 +27,7 @@ const SignIn: React.FC<SignInProps> = ({ onBackPress,onSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const storeToken = async (token: string) => {
     try {
@@ -95,7 +97,7 @@ const SignIn: React.FC<SignInProps> = ({ onBackPress,onSuccess }) => {
       style={styles.container}
     >
       <View style={styles.header}>
-        <TouchableOpacity onPress={()=>navigation.navigate('index')} style={styles.backButton}>
+        <TouchableOpacity onPress={() => router.push('/')} style={styles.backButton}>
           <Ionicons name="arrow-back" size={24} color="orange" />
         </TouchableOpacity>
         
