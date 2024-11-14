@@ -1,0 +1,19 @@
+name: Email Notification
+
+on: [push]
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send email
+      uses: dawidd6/action-send-mail@v2
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.EMAIL_USERNAME}}
+        password: ${{secrets.EMAIL_PASSWORD}}
+        subject: Nouveau push sur ${{github.repository}}
+        body: Un nouveau push a été effectué sur le dépôt ${{github.repository}} par ${{github.actor}}. Commit message: ${{github.event.head_commit.message}}
+        to: mehdi.romdhani@laplateforme.io
+        from: GitHub Actions
