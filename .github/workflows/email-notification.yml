@@ -14,6 +14,6 @@ jobs:
         username: ${{secrets.EMAIL_USERNAME}}
         password: ${{secrets.EMAIL_PASSWORD}}
         subject: Nouveau push sur ${{github.repository}}
-        body: Un nouveau push a été effectué sur le dépôt ${{github.repository}} par ${{github.actor}}. Commit message: ${{github.event.head_commit.message}}
+        body: "Un nouveau push a été effectué sur le dépôt ${{github.repository}} par ${{github.actor}}. Commit message: ${{github.event.head_commit.message}}"
         to: mehdi.romdhani@laplateforme.io
         from: GitHub Actions
